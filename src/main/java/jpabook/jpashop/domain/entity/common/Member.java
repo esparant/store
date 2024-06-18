@@ -16,13 +16,17 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"id", "address", "orders"})
 @NoArgsConstructor
 public class Member {
 
     @Id @GeneratedValue
     @Column(name = "member_id")
     private Long id;
+
+    public Member(String name) {
+        this.name = name;
+    }
 
     private String name;
 

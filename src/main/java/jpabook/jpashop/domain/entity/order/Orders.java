@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.order;
+package jpabook.jpashop.domain.entity.order;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -15,9 +15,9 @@ import jakarta.persistence.OneToOne;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import jpabook.jpashop.domain.common.OrderItem;
-import jpabook.jpashop.domain.delivery.Delivery;
-import jpabook.jpashop.domain.common.Member;
+import jpabook.jpashop.domain.entity.common.OrderItem;
+import jpabook.jpashop.domain.entity.delivery.Delivery;
+import jpabook.jpashop.domain.entity.common.Member;
 import lombok.Getter;
 import lombok.Setter;
 

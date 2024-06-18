@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.common;
+package jpabook.jpashop.domain.entity.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-import jpabook.jpashop.domain.order.Orders;
+import jpabook.jpashop.domain.entity.order.Orders;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

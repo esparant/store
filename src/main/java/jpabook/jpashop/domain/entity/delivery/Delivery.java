@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.delivery;
+package jpabook.jpashop.domain.entity.delivery;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -9,8 +9,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-import jpabook.jpashop.domain.common.Address;
-import jpabook.jpashop.domain.order.Orders;
+import jpabook.jpashop.domain.entity.common.Address;
+import jpabook.jpashop.domain.entity.order.Orders;
 import lombok.Getter;
 import lombok.Setter;
 

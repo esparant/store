@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.item;
+package jpabook.jpashop.domain.entity.item;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
@@ -11,8 +11,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-import jpabook.jpashop.domain.common.Category;
-import jpabook.jpashop.domain.common.OrderItem;
+import jpabook.jpashop.domain.entity.common.Category;
+import jpabook.jpashop.domain.entity.common.OrderItem;
 import lombok.Getter;
 import lombok.Setter;
 

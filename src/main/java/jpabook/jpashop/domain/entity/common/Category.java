@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.common;
+package jpabook.jpashop.domain.entity.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.entity.item.Item;
 import lombok.Getter;
 import lombok.Setter;
 

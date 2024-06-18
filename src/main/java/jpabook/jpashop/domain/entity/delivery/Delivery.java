@@ -12,12 +12,18 @@ import jakarta.persistence.OneToOne;
 import jpabook.jpashop.domain.entity.common.Address;
 import jpabook.jpashop.domain.entity.order.Orders;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Delivery {
+
+    public Delivery(Address address) {
+        this.address = address;
+    }
 
     @Id
     @GeneratedValue

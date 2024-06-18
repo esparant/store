@@ -14,16 +14,29 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import jpabook.jpashop.domain.entity.common.OrderItem;
 import jpabook.jpashop.domain.entity.delivery.Delivery;
 import jpabook.jpashop.domain.entity.common.Member;
+import jpabook.jpashop.domain.entity.delivery.DeliveryStatus;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor
 public class Orders {
+
+    public Orders(Member member, Delivery delivery, OrderItem... orderItems) {
+        this.member = member;
+        this.delivery = delivery;
+        this.orderItems.addAll(Arrays.asList(orderItems));
+
+        this.orderDate = LocalDateTime.now();
+        status = OrderStatus.ORDER;
+    }
 
     @Id @GeneratedValue
     @Column(name = "order_id")
@@ -34,7 +47,7 @@ public class Orders {
     private Member member;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "delievery_id")
+    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
     @Enumerated(EnumType.STRING)
@@ -60,5 +73,22 @@ public class Orders {
         delivery.setOrder(this);
     }
 
+    // 비즈니스 로직
+    // 주문취소
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가하다.");
+        }
 
+        status = OrderStatus.CANCEL;
+
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+    }
+
+    // 주문조회
+    public int getTotalPrice() {
+        return orderItems.stream().mapToInt(OrderItem::getTotalPrice).sum();
+    }
 }

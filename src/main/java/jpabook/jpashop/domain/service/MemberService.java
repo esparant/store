@@ -36,7 +36,7 @@ public class MemberService {
 
     // 기능 메서드
     private void validateDuplicatedMember(Member member) {
-        if (memberRepository.findByName(member.getName()).contains(member)) {
+        if (!memberRepository.findByName(member.getName()).isEmpty()) {
             throw new IllegalStateException("이미 존재하는 회원 입니다.");
         }
     }

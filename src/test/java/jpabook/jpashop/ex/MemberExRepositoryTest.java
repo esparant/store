@@ -1,11 +1,9 @@
-package jpabook.jpashop.repository;
+package jpabook.jpashop.ex;
 
 
 import static org.assertj.core.api.Assertions.*;
 
 import jakarta.transaction.Transactional;
-import jpabook.jpashop.ex.MemberEx;
-import jpabook.jpashop.ex.MemberExRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

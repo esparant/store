@@ -20,8 +20,8 @@ class MemberServiceTest {
     @Test
     void joinAndFindOne() {
         Member memberA = new Member("hello");
-        Long joinedMemberId = memberService.join(memberA);
 
+        Long joinedMemberId = memberService.join(memberA);
         Member foundMember = memberService.findOne(joinedMemberId);
 
         assertThat(foundMember).isEqualTo(memberA);

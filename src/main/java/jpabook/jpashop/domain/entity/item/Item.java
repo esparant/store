@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import jpabook.jpashop.domain.entity.common.Category;
 import jpabook.jpashop.domain.entity.common.OrderItem;
+import jpabook.jpashop.domain.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,4 +36,18 @@ public abstract class Item {
 
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
+
+    // 비즈니스 로직
+    // 재고 증가
+    public void addStock(int quantity) {
+        stock += quantity;
+    }
+
+    // 재고 감소
+    public void removeStock(int quantity) {
+        if (stock - quantity < 0) {
+            throw new NotEnoughStockException("재고가 부족합니다.");
+        }
+        stock -= quantity;
+    }
 }

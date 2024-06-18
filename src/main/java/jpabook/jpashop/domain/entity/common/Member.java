@@ -16,7 +16,6 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter
-@EqualsAndHashCode(exclude = {"id", "address", "orders"})
 @NoArgsConstructor
 public class Member {
 

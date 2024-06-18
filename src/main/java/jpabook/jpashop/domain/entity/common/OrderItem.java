@@ -30,4 +30,6 @@ public class OrderItem {
 
     private int quantity; // 주문시 수량
     private int price; // 주문시 가격
+
+
 }

@@ -1,10 +1,15 @@
 package jpabook.jpashop.repository;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
 import java.util.List;
+import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Repository
@@ -27,4 +32,6 @@ public class ItemRepository {
     public List<Item> findAll() {
         return em.createQuery("select i from Item i", Item.class).getResultList();
     }
+
+
 }

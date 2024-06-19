@@ -1,13 +1,15 @@
 package jpabook.jpashop.service;
 
+import java.util.List;
 import jpabook.jpashop.domain.common.Member;
 import jpabook.jpashop.domain.common.OrderItem;
 import jpabook.jpashop.domain.delivery.Delivery;
 import jpabook.jpashop.domain.item.Item;
-import jpabook.jpashop.order.Orders;
+import jpabook.jpashop.domain.order.Orders;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,5 +51,10 @@ public class OrderService {
     // 검색
     public Orders findOrder(Long orderId) {
         return orderRepository.findById(orderId);
+    }
+
+    public List<Orders> findOrders(OrderSearch orderSearch) {
+        return orderRepository.searchOrders(orderSearch);
+
     }
 }

@@ -1,4 +1,4 @@
-package jpabook.jpashop.order;
+package jpabook.jpashop.domain.order;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -35,6 +35,7 @@ public class Orders {
 
         this.delivery = delivery;
         this.orderItems.addAll(Arrays.asList(orderItems));
+        this.orderItems.getFirst().setOrder(this);
         this.orderDate = LocalDateTime.now();
         status = OrderStatus.ORDER;
     }

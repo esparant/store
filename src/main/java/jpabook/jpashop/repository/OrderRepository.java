@@ -2,10 +2,17 @@ package jpabook.jpashop.repository;
 
 import io.micrometer.common.util.StringUtils;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Id;
 import java.util.List;
-import jpabook.jpashop.order.Orders;
+import jpabook.jpashop.domain.common.Address;
+import jpabook.jpashop.domain.delivery.Delivery;
+import jpabook.jpashop.domain.order.Orders;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @RequiredArgsConstructor

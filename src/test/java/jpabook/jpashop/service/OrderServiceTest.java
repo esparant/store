@@ -11,7 +11,7 @@ import jpabook.jpashop.domain.delivery.Delivery;
 import jpabook.jpashop.domain.item.Album;
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
-import jpabook.jpashop.order.OrderStatus;
+import jpabook.jpashop.domain.order.OrderStatus;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

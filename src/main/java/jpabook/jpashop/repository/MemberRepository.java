@@ -1,10 +1,15 @@
 package jpabook.jpashop.repository;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
 import java.util.List;
+import jpabook.jpashop.domain.common.Address;
 import jpabook.jpashop.domain.common.Member;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Repository
@@ -29,5 +34,7 @@ public class MemberRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
+
+
 
 }

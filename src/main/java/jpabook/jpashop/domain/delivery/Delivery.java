@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jpabook.jpashop.domain.common.Address;
-import jpabook.jpashop.order.Orders;
+import jpabook.jpashop.domain.order.Orders;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

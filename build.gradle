@@ -34,6 +34,8 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.1'
+
 
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'

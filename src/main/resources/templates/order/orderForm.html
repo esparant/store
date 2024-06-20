@@ -4,10 +4,10 @@
 <body>
 <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
-    <form role="form" action="/order" method="post">
+    <form role="form" action="/order" th:object="${test}" method="post">
         <div class="form-group">
-            <label for="member">주문회원</label>
-            <select name="memberId" id="member" class="form-control">
+            <label th:for="memberId">주문회원</label>
+            <select name="memberId" id="member" th:field="*{memberId}" class="form-control">
                 <option value="">회원선택</option>
                 <option th:each="member : ${members}"
                         th:value="${member.id}"
@@ -15,8 +15,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="item">상품명</label>
-            <select name="itemId" id="item" class="form-control">
+            <label th:for="itemId">상품명</label>
+            <select name="itemId" id="item" th:field="*{itemId}" class="form-control">
                 <option value="">상품선택</option>
                 <option th:each="item : ${items}"
                         th:value="${item.id}"
@@ -24,8 +24,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="quantity">주문수량</label>
-            <input type="number" name="quantity" class="form-control" id="quantity"
+            <label th:for="quantity">주문수량</label>
+            <input type="number" name="quantity" th:field="*{quantity}" class="form-control" id="quantity"
                    placeholder="주문 수량을 입력하세요"></div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

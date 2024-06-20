@@ -24,6 +24,14 @@ public class MemberService {
         return member.getId();
     }
 
+    @Transactional
+    public Member update(Long id, Member update) {
+        validateExistedMember(id);
+        Member member = memberRepository.findById(id);
+        member.setName(update.getName());
+        return member;
+    }
+
     // 멤버 단일 조회
     public Member findOne(Long id) {
         return memberRepository.findById(id);
@@ -38,6 +46,12 @@ public class MemberService {
     private void validateDuplicatedMember(Member member) {
         if (!memberRepository.findByName(member.getName()).isEmpty()) {
             throw new IllegalStateException("이미 존재하는 회원 입니다.");
+        }
+    }
+
+    private void validateExistedMember(Long id) {
+        if (memberRepository.findById(id) == null) {
+            throw new IllegalStateException("존재하지 않는 회원입니다.");
         }
     }
 }

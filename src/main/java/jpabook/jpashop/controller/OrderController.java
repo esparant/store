@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
@@ -36,20 +35,20 @@ public class OrderController {
 
         return "order/orderForm";
     }
-    @PostMapping("/order")
+    /*@PostMapping("/order")
     public String createOrder(@RequestParam("itemId") Long itemId,
                               @RequestParam("memberId") Long memberId,
                               @RequestParam("quantity") int quantity) {
         orderService.order(memberId, itemId, quantity);
         return "redirect:/";
-    }
+    }*/
 
-    /*@PostMapping("/order")
+    @PostMapping("/order")
     public String createOrder(@ModelAttribute TestForm testForm) {
         System.out.println(testForm.toString());
         orderService.order(testForm.getMemberId(), testForm.getItemId(), testForm.getQuantity());
         return "redirect:/";
-    }*/
+    }
 
     @GetMapping("/orders")
     public String orders(@ModelAttribute OrderSearch orderSearch, Model model) {

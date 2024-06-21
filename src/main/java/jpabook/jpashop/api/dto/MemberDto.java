@@ -1,4 +1,4 @@
-package jpabook.jpashop.api;
+package jpabook.jpashop.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

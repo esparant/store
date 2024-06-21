@@ -2,17 +2,10 @@ package jpabook.jpashop.repository;
 
 import io.micrometer.common.util.StringUtils;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Id;
 import java.util.List;
-import jpabook.jpashop.domain.common.Address;
-import jpabook.jpashop.domain.delivery.Delivery;
 import jpabook.jpashop.domain.order.Orders;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @RequiredArgsConstructor
@@ -54,4 +47,19 @@ public class OrderRepository {
         return em.createQuery(jpql, Orders.class).getResultList();
     }
 
+    public List<Orders> findOrdersWithFetchJoinSimply() {
+        return em.createQuery("select o from Orders o "
+                        + "join fetch o.member m "
+                        + "join fetch o.delivery d"
+                , Orders.class).getResultList();
+    }
+
+    public List<Orders> findOrdersWithFetchJoinOrderItems() {
+        return em.createQuery("select distinct o from Orders o "
+                + "join fetch o.member m "
+                + "join fetch o.delivery d " // 일대다 패치 조인에서는 페이징 쓰지 말것 메모리를 써버린다.
+                + "join fetch o.orderItems oi "
+                + "join fetch oi.item i"
+                , Orders.class).getResultList();
+    }
 }

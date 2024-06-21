@@ -55,6 +55,13 @@ public class OrderService {
 
     public List<Orders> findOrders(OrderSearch orderSearch) {
         return orderRepository.searchOrders(orderSearch);
+    }
 
+    public List<Orders> findAllWithMemberDelivery() {
+        return orderRepository.findOrdersWithFetchJoinSimply();
+    }
+
+    public List<Orders> findAllWithOrderItems() {
+        return orderRepository.findOrdersWithFetchJoinOrderItems();
     }
 }

@@ -10,4 +10,4 @@
 - 통합 테스트 완료
 - 웹 계층 개발 (html, css) | css - bootstrap 사용
 ### Day 4
-- api 컨트롤러 개발햐
+- api 컨트롤러 개발

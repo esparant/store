@@ -2,6 +2,8 @@ package jpabook.jpashop.api;
 
 import jakarta.validation.Valid;
 import java.util.List;
+import jpabook.jpashop.api.dto.MemberDto;
+import jpabook.jpashop.api.dto.Result;
 import jpabook.jpashop.api.request.CreateMemberRequest;
 import jpabook.jpashop.api.request.UpdateMemberRequest;
 import jpabook.jpashop.api.response.CreateMemberResponse;

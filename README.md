@@ -13,3 +13,5 @@
 - member api 컨트롤러 개발
 ### Day 5
 - order api 컨트롤러 개발 (dto)
+### Day 6
+- order api 쿼리 최적화 및 v2 완료

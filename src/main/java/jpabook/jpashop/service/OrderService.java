@@ -61,6 +61,10 @@ public class OrderService {
         return orderRepository.findOrdersWithFetchJoinSimply();
     }
 
+    public List<Orders> findAllWithMemberDelivery(int offset, int limit) {
+        return orderRepository.findOrdersWithFetchJoinSimply(offset, limit);
+    }
+
     public List<Orders> findAllWithOrderItems() {
         return orderRepository.findOrdersWithFetchJoinOrderItems();
     }

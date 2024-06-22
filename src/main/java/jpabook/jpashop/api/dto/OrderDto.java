@@ -1,7 +1,6 @@
 package jpabook.jpashop.api.dto;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import jpabook.jpashop.domain.common.Address;
 import jpabook.jpashop.domain.order.OrderStatus;
@@ -16,7 +15,7 @@ public class OrderDto {
     private LocalDateTime orderDate;
     private OrderStatus orderStatus;
     private Address address;
-    List<OrderItemDto> orderItemsDtos = new ArrayList<>();
+    List<OrderItemDto> orderItemsDtos;
     private int totalPrice;
 //    private Result<List<OrderItemDto>> orderItemsResult;
 
